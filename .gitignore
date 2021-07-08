@@ -1,2 +1,5 @@
 .env
 db.sqlite3
+polls/__pycache__
+polls/migrations
+polls/__init__.py
