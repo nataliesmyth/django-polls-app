@@ -9,12 +9,12 @@
 <body>
 
     <h1>{{ question.question_text }}</h1>
-    <ul>
-    {% for choice in question.choice_set.all %}
-        <li>{{ choice.choice_text }}</li>
-    {% endfor %}
-    </ul>
-    <!-- use POST method, not GET, whenever the action will alter data on the server side -->
+        <ul>
+        {% for choice in question.choice_set.all %}
+            <li>{{ choice.choice_text }}</li>
+        {% endfor %}
+        </ul>
+   
     <form action="{% url 'polls:vote' question.id %}" method="post">
         {% csrf_token %}
         <fieldset>
@@ -27,13 +27,6 @@
         </fieldset>
         <input type="submit" value="Vote">
         </form>
-
-    <!-- 
-        template above displays a radio button for each question choice 
-            Name of each radio button = choice
-            Value of each radio button is the associated question choice's ID
-            Meaning: when someone selects a one of the radio buttons & submits a form, it'll send the POST data choice=# where # is the ID of the selected choice.
-    -->
 
 </body>
 </html>
